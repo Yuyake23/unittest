@@ -29,6 +29,9 @@ public class SimpleMath {
     }
 
     public double squareRoot(double number) {
+        if (number < 0)
+            throw new ArithmeticException("It's no possible to extract the square root of a negative number!");
+
         return Math.sqrt(number);
     }
 
