@@ -1,8 +1,6 @@
 package br.com.bruno.math;
 
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -13,13 +11,29 @@ public class SimpleMathTest {
 
     private SimpleMath math;
 
+    @BeforeAll
+    static void setup() {
+        // System.out.println("Running @BeforeAll method");
+    }
+
+    @AfterAll
+    static void cleanup() {
+        // System.out.println("Running @AfterAll method");
+    }
+
     @BeforeEach
-    void setUp() {
+    void beforeEach() {
+        // System.out.println("Running @BeforeEach method");
         this.math = new SimpleMath();
     }
 
+    @AfterEach
+    void afterEach() {
+        // System.out.println("Running @AfterEach method");
+    }
+
     @Test
-    @DisplayName("Teste 6.2 + 2 = 8.2")
+    @DisplayName("Test 6.2 + 2 = 8.2")
     void testSum_When_SixDotTwoIsAddedByTwo_ShouldReturn_EightDotTwo() {
         // Given / Arrange
         double firstValue = 6.2d;
