@@ -167,16 +167,18 @@ public class SimpleMathTest {
     }
 
     @Test
-    @DisplayName("Test sqrt of -1 = NaN")
-    void testSquareRoot_When_NegativeNumber_ShouldReturn_NaN() {
-        // Given / Arrange
+    @DisplayName("Test sqrt of -1 throw ArithmeticException")
+    void testSquareRoot_When_NegativeNumber_ShouldThrow_ArithmeticException() {
+        // Given
         double value = -1d;
+        String expectedMessage = "It's no possible to extract the square root of a negative number!";
 
-        // When / Act
-        double actual = math.squareRoot(value);
-
-        // Then / Assert
-        assertTrue(Double.isNaN(actual), "The testSquareRoot() did not produce NaN when number is negative");
+        // When & Then
+        Exception actualException = assertThrows(ArithmeticException.class,
+                () -> math.squareRoot(value),
+                "The testSquareRoot() did not threw ArithmeticException");
+        assertEquals(expectedMessage, actualException.getMessage(),
+                "The testSquareRoot() threw ArithmeticException with unexpect message");
     }
 
 }
