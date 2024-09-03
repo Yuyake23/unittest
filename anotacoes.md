@@ -87,6 +87,20 @@ void testSubtraction(double firstValue, double secondValue, double expected) {
 }
 ```
 
+## Repetindo Testes
+
+- Trocando a anotação `@Test` por `@RepeatedTest(<N>)` fazemos com que o teste seja executado por N vezes
+
+É possível pegar informações sobre a repetição adicionando um parâmetro ao metodo:
+```java
+@RepeatedTest(value = 3, name = "{displayName}. Repetition {currentRepetition} of {totalRepetitions}")
+void testSample(RepetitionInfo repetitionInfo, TestInfo testInfo) {
+    System.out.println("Repetition N° " + repetitionInfo.getCurrentRepetition() + " of " + repetitionInfo.getTotalRepetitions());
+    
+    System.out.println("Running " + testInfo.getTestMethod().get().getName());
+}
+```
+
 ## Anotações Bases
 
 - `@Test`: especifica que um método é um método de testes

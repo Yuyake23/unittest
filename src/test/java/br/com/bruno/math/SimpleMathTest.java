@@ -7,6 +7,7 @@ import org.junit.jupiter.params.provider.CsvFileSource;
 import org.junit.jupiter.params.provider.CsvSource;
 import org.junit.jupiter.params.provider.MethodSource;
 
+import java.util.Random;
 import java.util.stream.Stream;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -117,7 +118,7 @@ public class SimpleMathTest {
         assertEquals(expected, actual, EPSILON, "The testDivision() did not produce expected result");
     }
 
-    @Test
+    @RepeatedTest(3)
     @DisplayName("Test X / 0 = Infinite")
     void testDivision_When_AnyNumberIsDividedByZero_ShouldReturn_Infinite() {
         // Given / Arrange
@@ -163,11 +164,11 @@ public class SimpleMathTest {
         assertEquals(expected, actual, EPSILON, "The testSquareRoot() did not produce expected result");
     }
 
-    @Test
-    @DisplayName("Test sqrt of -1 throw ArithmeticException")
+    @RepeatedTest(3)
+    @DisplayName("Test sqrt of negative number throw ArithmeticException")
     void testSquareRoot_When_NegativeNumber_ShouldThrow_ArithmeticException() {
         // Given
-        double value = -1d;
+        double value = -(new Random().nextInt(100) + 1);
         String expectedMessage = "It's no possible to extract the square root of a negative number!";
 
         // When & Then
