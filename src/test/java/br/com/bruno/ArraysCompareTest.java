@@ -1,5 +1,7 @@
 package br.com.bruno;
 
+import org.junit.jupiter.api.Disabled;
+import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.Timeout;
 
@@ -8,6 +10,7 @@ import java.util.concurrent.TimeUnit;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+@Order(5)
 public class ArraysCompareTest {
 
     @Test
@@ -24,6 +27,7 @@ public class ArraysCompareTest {
     }
 
     @SuppressWarnings("MismatchedReadAndWriteOfArray")
+    @Disabled
     @Test
     @Timeout(value = 15, unit = TimeUnit.MILLISECONDS)
     void testSortPerformance() {

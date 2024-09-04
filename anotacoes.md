@@ -101,6 +101,25 @@ void testSample(RepetitionInfo repetitionInfo, TestInfo testInfo) {
 }
 ```
 
+## Ordem de Testes
+
+- A ordem que os testes são feitas pode ser alterada com a anotação `@TestMethodOrder(MethodOrderer.<classe de ordenação>.class)`.
+- As classes de ordenação existentes são:
+    - MethodName;
+    - Random;
+    - OrderAnnotation - é necessário anotas os metodos com `@Order(<numero>)`. 
+
+- Ordenar randomicamente é desejável na maioria das vezes, quando não queremos que um teste dependa de outro
+- Ordenar por índice é utilizado para testes de integração
+
+## Ciclo de Vida dos Testes no JUnit
+
+- Por padrão, o ciclo de vida da instância de testes "por método"
+- O JUnit cria uma instancia para cada teste que temos em uma classe de testes, os testes são executados separadamente, esse é o comportamento padrão
+- Esse comportamento pode ser alterado, fazendo com que todos os teste sejam executados em uma única instancia
+
+Para alterar o ciclo de vida padrão, basta adicionar a anotação `@TestInstance(TestInstance.Lifecycle.PER_CLASS)`
+
 ## Anotações Bases
 
 - `@Test`: especifica que um método é um método de testes
