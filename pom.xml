@@ -8,12 +8,12 @@
   <url>https://maven.apache.org</url>
 
   <properties>
-    <java.version>21.0.2</java.version>
+    <java.version>17.0.12</java.version>
     <junit.version>5.9.2</junit.version>
     <mockito.version>5.2.0</mockito.version>
     <hamcrest.version>2.2</hamcrest.version>
-    <maven.compiler.target>21.0.2</maven.compiler.target>
-    <maven.compiler.source>21.0.2</maven.compiler.source>
+    <maven.compiler.target>17.0.12</maven.compiler.target>
+    <maven.compiler.source>17.0.12</maven.compiler.source>
     <maven.compiler.plugin.version>3.13.0</maven.compiler.plugin.version>
   </properties>
 
