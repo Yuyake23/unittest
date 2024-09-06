@@ -1,14 +1,10 @@
 package br.com.bruno.secao6;
 
-import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import org.mockito.Mock;
-import org.mockito.Mockito;
 
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.ArgumentMatchers.anyInt;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
@@ -47,6 +43,16 @@ public class ListTest {
         // When / Act & Then / Assert
         assertEquals("Crocodile", list.get(0));
         assertEquals("Crocodile", list.get(1));
+    }
+
+    @Test
+    void testMockingList_When_ThrowAnException() {
+        // Given / Arrange
+        var list = mock(List.class);
+        when(list.get(anyInt())).thenThrow(new RuntimeException());
+
+        // When / Act & Then / Assert
+        assertThrows(RuntimeException.class, () -> list.get(0));
     }
 
 }
